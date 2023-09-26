@@ -9,16 +9,12 @@
             <p class="product-category">{{ product.category }}</p>
             <p class="product-description">{{ product.description }}</p>
             <div class="button-container">
-                <button class="btn">
-                    <p>
-                    Add
-                    </p>
+                <button class="btn" @click="addCardBasket">
+                    <p>Add</p>
                     <img src="../assets/img/basket-add.png" alt="" class="faeture-img">
                 </button>
                 <button class="btn btn-buy">
-                    <p>
-                    Buy
-                    </p>
+                    <p>Buy</p>
                     <img src="../assets/img/buy-icon.png" alt="" class="faeture-img">
                 </button>
             </div>
@@ -30,8 +26,15 @@
     </div>
 </template>
 
+
 <script setup>
-  const { product } = defineProps(['product']);
+    const { product } = defineProps(['product']);
+    const addCardBasket = () => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        console.log(cartItems)
+    };
 </script>
 
 <style scoped lang="scss">

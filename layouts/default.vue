@@ -2,7 +2,7 @@
     <div class="body">
         <header class="header">
             <nav class="main-navigation">
-                <NuxtLink to="/" class="logo">Logo</NuxtLink>
+                <NuxtLink to="/" class="logo">Brousbebr</NuxtLink>
                 <ul class="navigation">
                     <li>
                         <NuxtLink to="/basket">Basket</NuxtLink>
@@ -22,7 +22,7 @@
                 </NuxtLink>
             </nav>
             <nav class="main-navigation-1">
-                <NuxtLink to="/" class="logo">Logo</NuxtLink>
+                <NuxtLink to="/" class="logo">Brousbebr</NuxtLink>
                 <div class="header-burger" @click="toggleShowSide" v-bind:class="{ active: isElVisible }">
                     <span></span>
                 </div>
@@ -47,14 +47,14 @@
                     </li>
                 </ul>
             </nav>
-            <div class="search">
+            <!-- <div class="search">
                 <input class='test'/>
-                <!-- <ul> v-model="search" 
+                <ul> v-model="search" 
                     <li v-for="item in searchHandler" :key="item">
                         <h1>{{ item.title }}</h1>
                     </li>
-                </ul> -->
-            </div>
+                </ul> 
+            </div> -->
         </header>
 
         <div class="main-content">
@@ -102,7 +102,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+    .store_none {
+        display: none;
+    }
     body {
         margin: 0
     }
@@ -131,7 +134,7 @@ export default {
     //     display: none;
     // }
     .search {
-        margin-bottom: 57px;
+        margin-bottom: 42px;
         @media (max-width: 1240px) {
             margin-bottom: 32px;
         }
@@ -197,7 +200,7 @@ export default {
                 animation-fill-mode: forwards
             }
         }
-}
+    }
 
     @keyframes burgerAnimation {
         from {opacity: 0;}
@@ -242,7 +245,7 @@ export default {
         100% {
             top: 41%;
             background-color: #fff;
-            transform: rotate(45deg) translate(0, 51%);
+            transform: rotate(45deg) translate(0, 41%);
         }
     }
     .header-burger {
@@ -254,20 +257,19 @@ export default {
         height: 18px;
         margin-top: 10px;
         margin-left: -12px;
+        @media (min-width: 1240px) {
+            display: none;
+        }
         @media (max-width: 1240px) {
             display: flex;
             align-items: center;
             justify-content: flex-end;
         }
         @media (max-width: 1024px) {
-            margin-left: -16px;
-            left: 94%
-        }
-        @media (min-width: 1240px) {
-            display: none;
+            left: 92%
         }
         @media (max-width: 480px) {
-            left: 90%;
+            left: 94%;
         }
         span {
             height: 3px;
@@ -297,19 +299,22 @@ export default {
 
     
     .body {
-        margin: 0 80px;
+        margin: 0 40px;
         margin-top: -10px;
         @media (max-width: 1024px) {
             margin: 0 20px
         }
         @media (max-width: 480px) {
-            left: 12px;
-            margin: 0 8px
+            // left: 12px;
+            margin: 0 12px 0 4px
         }
         @media (max-width: 320px) {
             left: 0;
-            margin: 0 5px
+            margin: 0 8px 0 0px
         }
+    }
+    * {
+        margin: 0;
     }
     .btn {    
         background: #545050;
@@ -407,6 +412,18 @@ export default {
         li {
             margin: 0px 28px 0px 28px;
             list-style-type: none;
+            @media (max-width: 768px) {
+                margin: 0px 24px 0px 24px;
+            }
+            @media (max-width: 475px) {
+                margin: 0px 14px 0px 14px;
+            }
+            @media (max-width: 375px) {
+                margin: 0px 8px 0px 8px;
+            }
+            @media (max-width: 320px) {
+                margin: 0px 6px 0px 6px;
+            }
             a { 
                 text-decoration: none; 
                 font-family: 'Roboto';
@@ -432,6 +449,15 @@ export default {
         li {
             margin: 0px 28px 0px 28px;
             list-style-type: none;
+            @media (max-width: 475px) {
+                margin: 0px 14px 0px 14px;
+            }
+            @media (max-width: 375px) {
+                margin: 0px 8px 0px 8px;
+            }
+            @media (max-width: 320px) {
+                margin: 0px 6px 0px 6px;
+            }
             a { 
                 text-decoration: none; 
                 font-family: 'Roboto';
@@ -441,6 +467,61 @@ export default {
                 line-height: 20px;
                 color: #000000;
             } 
+        }
+    }
+    .store {
+        display: flex;
+        justify-content: center;
+    }
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        @media (max-width: 1240px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .allProducts {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-rule {
+        width: 100%;
+        max-width: 180px;
+        height: 70px;
+        color: rgb(33, 31, 31);
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 14px;
+        background-color:rgba(0, 0, 0, 0.268);
+        margin: 6px;
+        outline: none;
+        border: 1px solid #333;
+        @media (max-width: 640px) {
+            max-width: 120px;
+            height: 58px;
+            font-size: 13px;
+            margin: 3px;
+            border-radius: 12px;
+        }
+        @media (max-width: 475px) {
+            max-width: 100px;
+            height: 56px;
+            border-radius: 10px;
+        }
+        @media (max-width: 380px) {
+            max-width: 90px;
+            height: 50px;
+            border-radius: 9px;
+            margin: 2px;
         }
     }
 </style>

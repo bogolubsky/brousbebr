@@ -48,9 +48,6 @@
         .then(res=>res.json())
         .then(json=> console.log(json))
 
-    const uri = 'https://fakestoreapi.com/products/';
-    console.log(uri)
-
     const { data: products } = await useFetch('https://fakestoreapi.com/products/?limit=6');
 </script>
 

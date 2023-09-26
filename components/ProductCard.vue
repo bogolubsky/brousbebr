@@ -19,7 +19,7 @@
                     <img src="../assets/img/more.png" alt="" class="details-faeture-img">
                 </button>
             </NuxtLink>
-            <button class="add">
+            <button class="add" @click="addCardBasket()">
                 <p>Add</p>
                 <img src="../assets/img/basket-add.png" alt="" class="add-faeture-img">
             </button>
@@ -29,7 +29,14 @@
 </template>
 
 <script setup>
+    // import cartItems from '../data/data.js';
     const { product } = defineProps(['product']);
+    const addCardBasket = () => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        console.log(cartItems)
+    };
 </script>
 
 <style scoped lang="scss">
@@ -85,12 +92,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            &:active {
+                transition: ease 0.3s;
+                background: rgba(14, 66, 145, 0.8);
+                color: #eee;
+            }
             a {
                 text-decoration: none
             }   
             &-link {
                 text-decoration: none
-            } 
+            }
             @media (max-width: 375px) {
                 margin-top: 0px;
                 width: 104px;
@@ -134,6 +146,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            &:active {
+                transition: ease 0.3s;
+                background: rgba(11, 128, 9, 0.8);
+                color: #eee;
+            }
             @media (max-width: 375px) {
                 margin-top: 0px;
                 width: 104px;

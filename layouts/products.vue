@@ -2,7 +2,7 @@
     <div class="body">
         <header class="header">
             <nav class="main-navigation">
-                <NuxtLink to="/" class="logo">Logo</NuxtLink>
+                <NuxtLink to="/" class="logo">Brousbebr</NuxtLink>
                 <ul class="navigation">
                     <li>
                         <NuxtLink to="/basket">Basket</NuxtLink>
@@ -22,7 +22,7 @@
                 </NuxtLink>
             </nav>
             <nav class="main-navigation-1">
-                <NuxtLink to="/" class="logo">Logo</NuxtLink>
+                <NuxtLink to="/" class="logo">Brousbebr</NuxtLink>
                 <div class="header-burger" @click="toggleShowSide" v-bind:class="{ active: isElVisible }">
                     <span></span>
                 </div>
@@ -92,13 +92,13 @@ export default {
     // created() {
     //     this.data = products;
     // },
-    computed: {
-        filteredList() {
-            return this.postList.filter(post => {
-                return post.title.toLowerCase().includes(this.search.toLowerCase())
-            })
-        }
-    }
+    // computed: {
+    //     filteredList() {
+    //         return this.postList.filter(post => {
+    //             return post.title.toLowerCase().includes(this.search.toLowerCase())
+    //         })
+    //     }
+    // }
 }
 </script>
 

@@ -35,7 +35,7 @@
       let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
       cartItems = cartItems.filter(item => item.id !== product.id);
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      console.log('hi, i am gay')
+      console.log('hi, i am gay');
     }
 
     
